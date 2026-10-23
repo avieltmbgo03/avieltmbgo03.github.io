@@ -384,6 +384,7 @@
     .webdev-card .webdev-desc { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin: 0; line-height: 1.5; }
     .webdev-card .webdev-arrow { margin-left: auto; font-size: 1.5rem; transition: transform 0.3s; }
     .webdev-card:hover .webdev-arrow { transform: translateX(6px); }
+    .webdev-card { height: 100%; }
 
     #contact { background-color: var(--terracotta); }
     #contact .section-title { color: #fff; }
@@ -650,17 +651,27 @@
     </div>
   </section>
 
-  <section id="webdev" class="section-pad">
+    <section id="webdev" class="section-pad">
     <div class="container">
       <h2 class="section-title reveal">Website Development</h2>
       <div class="section-divider"></div>
-      <div class="row">
-        <div class="col-lg-8 reveal">
+      <div class="row g-4">
+        <div class="col-md-6 reveal">
           <a href="https://avieltmbgo03.github.io/academic/Bento/" class="webdev-card">
             <i class="bi bi-grid-1x2-fill webdev-icon"></i>
             <div>
               <p class="webdev-title">Hirono Collection</p>
               <p class="webdev-desc">A bento-style website showcasing my Pop Mart Hirono figures, built with Bootstrap.</p>
+            </div>
+            <i class="bi bi-arrow-right webdev-arrow"></i>
+          </a>
+        </div>
+        <div class="col-md-6 reveal">
+          <a href="https://avieltmbgo03.github.io/academic/JSON Datas" class="webdev-card">
+            <i class="bi bi-search-heart webdev-icon"></i>
+            <div>
+              <p class="webdev-title">Activity 2</p>
+              <p class="webdev-desc">A searchable Hirono series guide powered by JSON data, built with Bootstrap.</p>
             </div>
             <i class="bi bi-arrow-right webdev-arrow"></i>
           </a>
