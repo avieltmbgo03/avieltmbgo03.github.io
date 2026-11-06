@@ -362,29 +362,119 @@
     }
 
     #webdev { background-color: var(--cream); border-top: 1px solid var(--border); }
-    .webdev-card {
+    /* Website development cards */
+    .wd-card {
       display: flex;
-      align-items: center;
-      gap: 20px;
+      flex-direction: column;
+      height: 100%;
+      border-radius: 10px;
+      overflow: hidden;
       background-color: var(--terracotta);
       color: #fff;
-      border-radius: 10px;
-      padding: 28px 30px;
       text-decoration: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .webdev-card:hover {
+    .wd-card:hover {
       transform: translateY(-8px) scale(1.01);
       box-shadow: 0 20px 40px rgba(0,0,0,0.18);
-      background-color: var(--terra-dark);
       color: #fff;
     }
-    .webdev-card .webdev-icon { font-size: 3rem; line-height: 1; }
-    .webdev-card .webdev-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; }
-    .webdev-card .webdev-desc { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin: 0; line-height: 1.5; }
-    .webdev-card .webdev-arrow { margin-left: auto; font-size: 1.5rem; transition: transform 0.3s; }
-    .webdev-card:hover .webdev-arrow { transform: translateX(6px); }
-    .webdev-card { height: 100%; }
+
+    .wd-preview {
+      position: relative;
+      height: 190px;
+      background-color: var(--border);
+      padding: 34px 18px 18px;
+      overflow: hidden;
+    }
+    .wd-preview::before {            /* browser bar */
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 22px;
+      background-color: var(--dark-text);
+    }
+    .wd-preview::after {             /* three window dots */
+      content: '';
+      position: absolute;
+      top: 8px; left: 10px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background-color: #d9d0c0;
+      box-shadow: 11px 0 0 #d9d0c0, 22px 0 0 #d9d0c0;
+    }
+    .wd-preview > * { transition: transform 0.4s ease; }
+    .wd-card:hover .wd-preview > * { transform: scale(1.04); }
+
+    /* Mini preview: bento */
+    .pv-bento {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 6px;
+    }
+    .pv-bento span { border-radius: 6px; background-color: var(--cream); }
+    .pv-bento span:nth-child(1) { grid-row: span 2; background-color: var(--terracotta); }
+    .pv-bento span:nth-child(2) { background-color: var(--dark-text); }
+    .pv-bento span:nth-child(4) { grid-column: span 2; background-color: var(--terra-dark); }
+
+    /* Mini preview: search list */
+    .pv-list { display: flex; flex-direction: column; gap: 8px; }
+    .pv-search {
+      height: 22px;
+      border-radius: 30px;
+      border: 1.5px solid var(--terracotta);
+      background-color: var(--cream);
+    }
+    .pv-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 24px;
+      padding: 0 8px;
+      border-radius: 6px;
+      background-color: var(--cream);
+    }
+    .pv-row i { width: 12px; height: 12px; border-radius: 50%; background-color: var(--terracotta); flex: none; }
+    .pv-row b { height: 5px; border-radius: 3px; background-color: var(--border); }
+    .pv-row b:nth-of-type(1) { width: 38%; background-color: var(--dark-text); }
+    .pv-row b:nth-of-type(2) { width: 22%; margin-left: auto; }
+
+    /* Mini preview: character grid */
+    .pv-dex { display: flex; flex-direction: column; gap: 8px; height: 100%; }
+    .pv-chips { display: flex; gap: 5px; }
+    .pv-chips i { height: 12px; width: 26px; border-radius: 30px; border: 1.5px solid var(--terracotta); }
+    .pv-chips i:first-child { background-color: var(--terracotta); }
+    .pv-grid { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .pv-grid span {
+      border-radius: 5px;
+      background: linear-gradient(to bottom, var(--cream) 68%, var(--terracotta) 68%);
+    }
+
+    .wd-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; transition: background-color 0.3s; }
+    .wd-card:hover .wd-body { background-color: var(--terra-dark); }
+    .wd-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .wd-num {
+      font-family: 'Courier Prime', monospace;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.7);
+    }
+    .wd-arrow { font-size: 1.2rem; transition: transform 0.3s; }
+    .wd-card:hover .wd-arrow { transform: translate(4px, -4px); }
+    .wd-title { font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 1.25rem; margin: 0 0 6px; }
+    .wd-desc { font-size: 0.85rem; color: rgba(255,255,255,0.85); line-height: 1.55; margin: 0 0 16px; }
+    .wd-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .wd-tags span {
+      font-size: 0.74rem;
+      font-weight: 500;
+      padding: 3px 12px;
+      border-radius: 30px;
+      border: 1.5px solid rgba(245,240,232,0.55);
+      color: var(--cream);
+    }
 
     #contact { background-color: var(--terracotta); }
     #contact .section-title { color: #fff; }
@@ -656,26 +746,58 @@
       <h2 class="section-title reveal">Website Development</h2>
       <div class="section-divider"></div>
       <div class="row g-4">
-        <div class="col-md-6 reveal">
-          <a href="https://avieltmbgo03.github.io/academic/Bento/" class="webdev-card">
-            <i class="bi bi-grid-1x2-fill webdev-icon"></i>
-            <div>
-              <p class="webdev-title">Hirono Collection</p>
-              <p class="webdev-desc">A bento-style website showcasing my Pop Mart Hirono figures, built with Bootstrap.</p>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <a href="https://avieltmbgo03.github.io/academic/Bento/" class="wd-card">
+            <div class="wd-preview">
+              <div class="pv-bento"><span></span><span></span><span></span><span></span></div>
             </div>
-            <i class="bi bi-arrow-right webdev-arrow"></i>
+            <div class="wd-body">
+              <div class="wd-top"><span class="wd-num">01</span><i class="bi bi-arrow-up-right wd-arrow"></i></div>
+              <p class="wd-title">Hirono Collection</p>
+              <p class="wd-desc">A bento-style gallery showcasing my Pop Mart Hirono figures, with scroll-reveal animations.</p>
+              <div class="wd-tags"><span>Bootstrap</span><span>Bento grid</span><span>Animations</span></div>
+            </div>
           </a>
         </div>
-        <div class="col-md-6 reveal">
-          <a href="https://avieltmbgo03.github.io/academic/JSON Datas" class="webdev-card">
-            <i class="bi bi-search-heart webdev-icon"></i>
-            <div>
-              <p class="webdev-title">Activity 2</p>
-              <p class="webdev-desc">A searchable Hirono series guide powered by JSON data, built with Bootstrap.</p>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <a href="https://avieltmbgo03.github.io/academic/JSON%20Datas" class="wd-card">
+            <div class="wd-preview">
+              <div class="pv-list">
+                <div class="pv-search"></div>
+                <div class="pv-row"><i></i><b></b><b></b></div>
+                <div class="pv-row"><i></i><b></b><b></b></div>
+                <div class="pv-row"><i></i><b></b><b></b></div>
+              </div>
             </div>
-            <i class="bi bi-arrow-right webdev-arrow"></i>
+            <div class="wd-body">
+              <div class="wd-top"><span class="wd-num">02</span><i class="bi bi-arrow-up-right wd-arrow"></i></div>
+              <p class="wd-title">Activity 2</p>
+              <p class="wd-desc">A searchable Hirono series guide that loads its entries from a JSON data file.</p>
+              <div class="wd-tags"><span>Bootstrap</span><span>JSON</span><span>Search</span></div>
+            </div>
           </a>
         </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <a href="https://avieltmbgo03.github.io/academic/RickMortyDex/" class="wd-card">
+            <div class="wd-preview">
+              <div class="pv-dex">
+                <div class="pv-search"></div>
+                <div class="pv-chips"><i></i><i></i><i></i><i></i></div>
+                <div class="pv-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+            </div>
+            <div class="wd-body">
+              <div class="wd-top"><span class="wd-num">03</span><i class="bi bi-arrow-up-right wd-arrow"></i></div>
+              <p class="wd-title">Character Dex</p>
+              <p class="wd-desc">A Rick and Morty character browser with live search, status filters and detail popups, powered by a public API.</p>
+              <div class="wd-tags"><span>JavaScript</span><span>REST API</span><span>Fetch</span></div>
+            </div>
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
