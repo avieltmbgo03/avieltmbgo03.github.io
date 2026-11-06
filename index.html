@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bojji | Portfolio</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
 
   <style>
     :root {
-      --cream:      #f5f0e8;
+      --cream: #f5f0e8;
       --terracotta: #c0584a;
       --terra-dark: #a84538;
-      --dark-text:  #2b2b2b;
-      --muted:      #6b6b6b;
-      --border:     #d9d0c0;
+      --dark-text: #2b2b2b;
+      --muted: #6b6b6b;
+      --border: #d9d0c0;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--cream);
@@ -29,29 +35,63 @@
     }
 
     @keyframes slideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(-14px); }
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
     }
 
     @keyframes pulseRing {
-      0%   { box-shadow: 0 0 0 0 rgba(245,240,232,0.5); }
-      70%  { box-shadow: 0 0 0 18px rgba(245,240,232,0); }
-      100% { box-shadow: 0 0 0 0 rgba(245,240,232,0); }
+      0% {
+        box-shadow: 0 0 0 0 rgba(245, 240, 232, 0.5);
+      }
+
+      70% {
+        box-shadow: 0 0 0 18px rgba(245, 240, 232, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(245, 240, 232, 0);
+      }
     }
 
     @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
     }
 
     @keyframes growLine {
-      from { width: 0; }
-      to   { width: 40px; }
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 40px;
+      }
     }
 
     .reveal {
@@ -59,22 +99,36 @@
       transform: translateY(40px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
+
     .reveal.from-left {
       transform: translateX(-50px);
     }
+
     .reveal.from-right {
       transform: translateX(50px);
     }
+
     .reveal.revealed {
       opacity: 1;
       transform: translate(0, 0);
     }
 
     @keyframes popIn {
-      0%   { opacity: 0; transform: scale(0.6); }
-      70%  { transform: scale(1.1); }
-      100% { opacity: 1; transform: scale(1); }
+      0% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+
+      70% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
+
     .skill-badge.popped {
       animation: popIn 0.4s ease forwards;
     }
@@ -87,13 +141,17 @@
       margin-bottom: 36px;
       transition: width 0.8s ease;
     }
-    .section-divider.drawn { width: 40px; }
+
+    .section-divider.drawn {
+      width: 40px;
+    }
 
     .video-card {
       opacity: 0;
       transform: translateY(50px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
+
     .video-card.revealed {
       opacity: 1;
       transform: translateY(0);
@@ -104,6 +162,7 @@
       transform: translateX(20px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
+
     .info-row.revealed {
       opacity: 1;
       transform: translateX(0);
@@ -115,12 +174,14 @@
       padding: 16px 0;
       animation: slideUp 0.6s ease both;
     }
+
     .navbar-brand {
       font-family: 'Courier Prime', monospace;
       font-weight: 700;
       font-size: 1.3rem;
       color: var(--dark-text) !important;
     }
+
     .nav-link {
       color: var(--dark-text) !important;
       font-size: 0.95rem;
@@ -129,16 +190,25 @@
       position: relative;
       transition: color 0.2s;
     }
+
     .nav-link::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 16px;
-      width: 0; height: 2px;
+      bottom: 0;
+      left: 16px;
+      width: 0;
+      height: 2px;
       background: var(--terracotta);
       transition: width 0.3s ease;
     }
-    .nav-link:hover { color: var(--terracotta) !important; }
-    .nav-link:hover::after { width: calc(100% - 32px); }
+
+    .nav-link:hover {
+      color: var(--terracotta) !important;
+    }
+
+    .nav-link:hover::after {
+      width: calc(100% - 32px);
+    }
 
     #hero {
       background-color: var(--terracotta);
@@ -146,13 +216,15 @@
       padding: 70px 0 80px;
       overflow: hidden;
     }
+
     #hero .hello-text {
       font-size: 0.9rem;
-      color: rgba(245,240,232,0.8);
+      color: rgba(245, 240, 232, 0.8);
       margin-bottom: 6px;
       letter-spacing: 0.05em;
       animation: slideUp 0.6s 0.2s ease both;
     }
+
     #hero h1 {
       font-family: 'Courier Prime', monospace;
       font-size: 3.2rem;
@@ -165,18 +237,22 @@
 
     #hero .role {
       font-size: 1rem;
-      color: rgba(245,240,232,0.9);
+      color: rgba(245, 240, 232, 0.9);
       margin-bottom: 20px;
       font-style: italic;
       min-height: 1.5em;
       animation: slideUp 0.7s 0.5s ease both;
     }
-    #role-text { display: inline; }
+
+    #role-text {
+      display: inline;
+    }
+
     #cursor {
       display: inline-block;
       width: 2px;
       height: 1em;
-      background: rgba(245,240,232,0.85);
+      background: rgba(245, 240, 232, 0.85);
       margin-left: 2px;
       vertical-align: middle;
       animation: blink 0.7s infinite;
@@ -184,15 +260,17 @@
 
     #hero p.bio {
       font-size: 0.95rem;
-      color: rgba(245,240,232,0.9);
+      color: rgba(245, 240, 232, 0.9);
       line-height: 1.7;
       max-width: 420px;
       margin-bottom: 28px;
       animation: slideUp 0.7s 0.65s ease both;
     }
+
     .hero-btns {
       animation: slideUp 0.7s 0.8s ease both;
     }
+
     .btn-hero-primary {
       background-color: var(--cream);
       color: var(--terracotta);
@@ -205,11 +283,13 @@
       display: inline-block;
       transition: all 0.25s;
     }
+
     .btn-hero-primary:hover {
       background-color: transparent;
       color: var(--cream);
       transform: translateY(-2px);
     }
+
     .btn-hero-outline {
       background-color: transparent;
       color: var(--cream);
@@ -222,6 +302,7 @@
       display: inline-block;
       transition: all 0.25s;
     }
+
     .btn-hero-outline:hover {
       background-color: var(--cream);
       color: var(--terracotta);
@@ -231,6 +312,7 @@
     .avatar-col {
       animation: slideUp 0.8s 0.4s ease both;
     }
+
     .avatar-wrapper {
       width: 200px;
       height: 200px;
@@ -243,19 +325,24 @@
       flex-shrink: 0;
       animation: float 4s ease-in-out infinite, pulseRing 2.5s ease-out infinite;
     }
+
     .avatar-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
+
     .avatar-placeholder-icon {
       font-size: 6rem;
       color: var(--terracotta);
       line-height: 1;
     }
 
-    .section-pad { padding: 70px 0; }
+    .section-pad {
+      padding: 70px 0;
+    }
+
     .section-title {
       font-family: 'Courier Prime', monospace;
       font-size: 1.7rem;
@@ -264,7 +351,10 @@
       margin-bottom: 6px;
     }
 
-    #about { background-color: var(--cream); }
+    #about {
+      background-color: var(--cream);
+    }
+
     #about .about-intro {
       font-size: 1.05rem;
       font-weight: 600;
@@ -272,27 +362,46 @@
       line-height: 1.7;
       margin-bottom: 14px;
     }
+
     #about .about-sub {
       font-size: 0.93rem;
       color: var(--muted);
       line-height: 1.75;
     }
-    .info-table { width: 100%; }
+
+    .info-table {
+      width: 100%;
+    }
+
     .info-table td {
       padding: 7px 0;
       font-size: 0.92rem;
       vertical-align: middle;
     }
+
     .info-label {
       color: var(--muted);
       white-space: nowrap;
       padding-right: 12px;
       font-weight: 500;
     }
-    .info-label i { color: var(--terracotta); font-size: 0.85rem; margin-right: 5px; }
-    .info-value { color: var(--dark-text); font-weight: 500; }
 
-    #skills { background-color: var(--cream); border-top: 1px solid var(--border); }
+    .info-label i {
+      color: var(--terracotta);
+      font-size: 0.85rem;
+      margin-right: 5px;
+    }
+
+    .info-value {
+      color: var(--dark-text);
+      font-weight: 500;
+    }
+
+    #skills {
+      background-color: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+
     .skill-group-title {
       font-size: 0.8rem;
       letter-spacing: 0.08em;
@@ -301,6 +410,7 @@
       margin-bottom: 14px;
       font-weight: 600;
     }
+
     .skill-badge {
       display: inline-block;
       border: 1.5px solid var(--border);
@@ -310,16 +420,22 @@
       color: var(--dark-text);
       margin: 4px;
       background-color: transparent;
-      opacity: 0; /* starts hidden; JS pops them in */
+      opacity: 0;
+      /* starts hidden; JS pops them in */
       transition: border-color 0.2s, color 0.2s, transform 0.2s;
     }
+
     .skill-badge:hover {
       border-color: var(--terracotta);
       color: var(--terracotta);
       transform: scale(1.08);
     }
 
-    #projects { background-color: var(--cream); border-top: 1px solid var(--border); }
+    #projects {
+      background-color: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+
     .video-card {
       border-radius: 10px;
       overflow: hidden;
@@ -328,10 +444,12 @@
       flex-direction: column;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .video-card:hover {
       transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
     }
+
     .video-card video {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -339,29 +457,37 @@
       background-color: #000;
       object-fit: cover;
     }
+
     .video-desc-box {
       background-color: var(--terracotta);
       padding: 16px 18px;
       flex: 1;
       transition: background-color 0.3s;
     }
+
     .video-card:hover .video-desc-box {
       background-color: var(--terra-dark);
     }
+
     .video-desc-box .video-title {
       font-weight: 700;
       font-size: 0.95rem;
       color: #fff;
       margin-bottom: 6px;
     }
+
     .video-desc-box .video-desc {
       font-size: 0.83rem;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.5;
       margin: 0;
     }
 
-    #webdev { background-color: var(--cream); border-top: 1px solid var(--border); }
+    #webdev {
+      background-color: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+
     /* Website development cards */
     .wd-card {
       display: flex;
@@ -374,9 +500,10 @@
       text-decoration: none;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .wd-card:hover {
       transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
       color: #fff;
     }
 
@@ -387,24 +514,38 @@
       padding: 34px 18px 18px;
       overflow: hidden;
     }
-    .wd-preview::before {            /* browser bar */
+
+    .wd-preview::before {
+      /* browser bar */
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 22px;
       background-color: var(--dark-text);
     }
-    .wd-preview::after {             /* three window dots */
+
+    .wd-preview::after {
+      /* three window dots */
       content: '';
       position: absolute;
-      top: 8px; left: 10px;
-      width: 6px; height: 6px;
+      top: 8px;
+      left: 10px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background-color: #d9d0c0;
       box-shadow: 11px 0 0 #d9d0c0, 22px 0 0 #d9d0c0;
     }
-    .wd-preview > * { transition: transform 0.4s ease; }
-    .wd-card:hover .wd-preview > * { transform: scale(1.04); }
+
+    .wd-preview>* {
+      transition: transform 0.4s ease;
+    }
+
+    .wd-card:hover .wd-preview>* {
+      transform: scale(1.04);
+    }
 
     /* Mini preview: bento */
     .pv-bento {
@@ -414,19 +555,40 @@
       grid-template-rows: 1fr 1fr;
       gap: 6px;
     }
-    .pv-bento span { border-radius: 6px; background-color: var(--cream); }
-    .pv-bento span:nth-child(1) { grid-row: span 2; background-color: var(--terracotta); }
-    .pv-bento span:nth-child(2) { background-color: var(--dark-text); }
-    .pv-bento span:nth-child(4) { grid-column: span 2; background-color: var(--terra-dark); }
+
+    .pv-bento span {
+      border-radius: 6px;
+      background-color: var(--cream);
+    }
+
+    .pv-bento span:nth-child(1) {
+      grid-row: span 2;
+      background-color: var(--terracotta);
+    }
+
+    .pv-bento span:nth-child(2) {
+      background-color: var(--dark-text);
+    }
+
+    .pv-bento span:nth-child(4) {
+      grid-column: span 2;
+      background-color: var(--terra-dark);
+    }
 
     /* Mini preview: search list */
-    .pv-list { display: flex; flex-direction: column; gap: 8px; }
+    .pv-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
     .pv-search {
       height: 22px;
       border-radius: 30px;
       border: 1.5px solid var(--terracotta);
       background-color: var(--cream);
     }
+
     .pv-row {
       display: flex;
       align-items: center;
@@ -436,55 +598,152 @@
       border-radius: 6px;
       background-color: var(--cream);
     }
-    .pv-row i { width: 12px; height: 12px; border-radius: 50%; background-color: var(--terracotta); flex: none; }
-    .pv-row b { height: 5px; border-radius: 3px; background-color: var(--border); }
-    .pv-row b:nth-of-type(1) { width: 38%; background-color: var(--dark-text); }
-    .pv-row b:nth-of-type(2) { width: 22%; margin-left: auto; }
+
+    .pv-row i {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--terracotta);
+      flex: none;
+    }
+
+    .pv-row b {
+      height: 5px;
+      border-radius: 3px;
+      background-color: var(--border);
+    }
+
+    .pv-row b:nth-of-type(1) {
+      width: 38%;
+      background-color: var(--dark-text);
+    }
+
+    .pv-row b:nth-of-type(2) {
+      width: 22%;
+      margin-left: auto;
+    }
 
     /* Mini preview: character grid */
-    .pv-dex { display: flex; flex-direction: column; gap: 8px; height: 100%; }
-    .pv-chips { display: flex; gap: 5px; }
-    .pv-chips i { height: 12px; width: 26px; border-radius: 30px; border: 1.5px solid var(--terracotta); }
-    .pv-chips i:first-child { background-color: var(--terracotta); }
-    .pv-grid { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .pv-dex {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      height: 100%;
+    }
+
+    .pv-chips {
+      display: flex;
+      gap: 5px;
+    }
+
+    .pv-chips i {
+      height: 12px;
+      width: 26px;
+      border-radius: 30px;
+      border: 1.5px solid var(--terracotta);
+    }
+
+    .pv-chips i:first-child {
+      background-color: var(--terracotta);
+    }
+
+    .pv-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+
     .pv-grid span {
       border-radius: 5px;
       background: linear-gradient(to bottom, var(--cream) 68%, var(--terracotta) 68%);
     }
 
-    .wd-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; transition: background-color 0.3s; }
-    .wd-card:hover .wd-body { background-color: var(--terra-dark); }
-    .wd-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .wd-body {
+      padding: 20px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      transition: background-color 0.3s;
+    }
+
+    .wd-card:hover .wd-body {
+      background-color: var(--terra-dark);
+    }
+
+    .wd-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
     .wd-num {
       font-family: 'Courier Prime', monospace;
       font-weight: 700;
       font-size: 0.9rem;
       letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255, 255, 255, 0.7);
     }
-    .wd-arrow { font-size: 1.2rem; transition: transform 0.3s; }
-    .wd-card:hover .wd-arrow { transform: translate(4px, -4px); }
-    .wd-title { font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 1.25rem; margin: 0 0 6px; }
-    .wd-desc { font-size: 0.85rem; color: rgba(255,255,255,0.85); line-height: 1.55; margin: 0 0 16px; }
-    .wd-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+
+    .wd-arrow {
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+
+    .wd-card:hover .wd-arrow {
+      transform: translate(4px, -4px);
+    }
+
+    .wd-title {
+      font-family: 'Courier Prime', monospace;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin: 0 0 6px;
+    }
+
+    .wd-desc {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.55;
+      margin: 0 0 16px;
+    }
+
+    .wd-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
     .wd-tags span {
       font-size: 0.74rem;
       font-weight: 500;
       padding: 3px 12px;
       border-radius: 30px;
-      border: 1.5px solid rgba(245,240,232,0.55);
+      border: 1.5px solid rgba(245, 240, 232, 0.55);
       color: var(--cream);
     }
 
-    #contact { background-color: var(--terracotta); }
-    #contact .section-title { color: #fff; }
-    #contact .section-divider { background-color: var(--cream); }
+    #contact {
+      background-color: var(--terracotta);
+    }
+
+    #contact .section-title {
+      color: #fff;
+    }
+
+    #contact .section-divider {
+      background-color: var(--cream);
+    }
+
     #contact .contact-blurb {
-      color: rgba(245,240,232,0.9);
+      color: rgba(245, 240, 232, 0.9);
       font-size: 0.95rem;
       line-height: 1.7;
       margin-bottom: 28px;
     }
+
     .contact-link {
       display: flex;
       align-items: center;
@@ -495,24 +754,38 @@
       margin-bottom: 12px;
       transition: gap 0.25s, opacity 0.25s;
     }
-    .contact-link:hover { opacity: 0.8; gap: 14px; color: var(--cream); }
-    .contact-link i { font-size: 1rem; }
+
+    .contact-link:hover {
+      opacity: 0.8;
+      gap: 14px;
+      color: var(--cream);
+    }
+
+    .contact-link i {
+      font-size: 1rem;
+    }
+
     .contact-form .form-control {
       background-color: transparent;
-      border: 1.5px solid rgba(245,240,232,0.5);
+      border: 1.5px solid rgba(245, 240, 232, 0.5);
       border-radius: 6px;
       color: var(--cream);
       font-size: 0.9rem;
       padding: 10px 14px;
       transition: border-color 0.25s, background-color 0.25s;
     }
+
     .contact-form .form-control:focus {
-      background-color: rgba(255,255,255,0.08);
+      background-color: rgba(255, 255, 255, 0.08);
       border-color: var(--cream);
       color: var(--cream);
       box-shadow: none;
     }
-    .contact-form .form-control::placeholder { color: rgba(245,240,232,0.5); }
+
+    .contact-form .form-control::placeholder {
+      color: rgba(245, 240, 232, 0.5);
+    }
+
     .btn-send {
       background-color: var(--cream);
       color: var(--terracotta);
@@ -527,12 +800,19 @@
       cursor: pointer;
       transition: transform 0.2s, opacity 0.2s;
     }
-    .btn-send:hover { transform: translateY(-2px); opacity: 0.9; }
-    .btn-send:active { transform: scale(0.97); }
+
+    .btn-send:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .btn-send:active {
+      transform: scale(0.97);
+    }
 
     footer {
       background-color: var(--terra-dark);
-      color: rgba(245,240,232,0.5);
+      color: rgba(245, 240, 232, 0.5);
       text-align: center;
       padding: 20px 0;
       font-size: 0.8rem;
@@ -542,23 +822,36 @@
 
     #scrollTop {
       position: fixed;
-      bottom: 30px; right: 30px;
-      width: 42px; height: 42px;
+      bottom: 30px;
+      right: 30px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: var(--terracotta);
       color: #fff;
       border: none;
       font-size: 1.1rem;
       cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
       transition: opacity 0.3s, transform 0.3s;
       z-index: 999;
     }
-    #scrollTop.visible { opacity: 1; pointer-events: all; }
-    #scrollTop:hover { transform: translateY(-3px); }
+
+    #scrollTop.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #scrollTop:hover {
+      transform: translateY(-3px);
+    }
   </style>
 </head>
+
 <body>
 
   <nav class="navbar navbar-expand-lg">
@@ -706,7 +999,8 @@
             </video>
             <div class="video-desc-box">
               <p class="video-title">Mikuventures</p>
-              <p class="video-desc">Mikuventures was made by me and my three other groupmates for the final requirement of COMPROG 2 subject.</p>
+              <p class="video-desc">Mikuventures was made by me and my three other groupmates for the final requirement
+                of COMPROG 2 subject.</p>
             </div>
           </div>
         </div>
@@ -719,7 +1013,8 @@
             </video>
             <div class="video-desc-box">
               <p class="video-title">Aurea Airways</p>
-              <p class="video-desc">Aurea Airways was made by me and my three other groupmates for the final requirement of INTEG, I.M. and OOP.</p>
+              <p class="video-desc">Aurea Airways was made by me and my three other groupmates for the final requirement
+                of INTEG, I.M. and OOP.</p>
             </div>
           </div>
         </div>
@@ -732,7 +1027,8 @@
             </video>
             <div class="video-desc-box">
               <p class="video-title">Khoi</p>
-              <p class="video-desc">A tribute project dedicated to Khoi and the memories we shared, He was my Best friend since highschool to Senior High School.</p>
+              <p class="video-desc">A tribute project dedicated to Khoi and the memories we shared, He was my Best
+                friend since highschool to Senior High School.</p>
             </div>
           </div>
         </div>
@@ -741,7 +1037,7 @@
     </div>
   </section>
 
-    <section id="webdev" class="section-pad">
+  <section id="webdev" class="section-pad">
     <div class="container">
       <h2 class="section-title reveal">Website Development</h2>
       <div class="section-divider"></div>
@@ -755,7 +1051,8 @@
             <div class="wd-body">
               <div class="wd-top"><span class="wd-num">01</span><i class="bi bi-arrow-up-right wd-arrow"></i></div>
               <p class="wd-title">Hirono Collection</p>
-              <p class="wd-desc">A bento-style gallery showcasing my Pop Mart Hirono figures, with scroll-reveal animations.</p>
+              <p class="wd-desc">A bento-style gallery showcasing my Pop Mart Hirono figures, with scroll-reveal
+                animations.</p>
               <div class="wd-tags"><span>Bootstrap</span><span>Bento grid</span><span>Animations</span></div>
             </div>
           </a>
@@ -781,18 +1078,21 @@
         </div>
 
         <div class="col-md-6 col-lg-4 reveal">
-          <a href="https://avieltmbgo03.github.io/academic/RickMortyDex/" class="wd-card">
+          <a href="https://avieltmbgo03.github.io/academic/API/" class="wd-card">
             <div class="wd-preview">
               <div class="pv-dex">
                 <div class="pv-search"></div>
                 <div class="pv-chips"><i></i><i></i><i></i><i></i></div>
-                <div class="pv-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="pv-grid">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
               </div>
             </div>
             <div class="wd-body">
               <div class="wd-top"><span class="wd-num">03</span><i class="bi bi-arrow-up-right wd-arrow"></i></div>
               <p class="wd-title">Character Dex</p>
-              <p class="wd-desc">A Rick and Morty character browser with live search, status filters and detail popups, powered by a public API.</p>
+              <p class="wd-desc">A Rick and Morty character browser with live search, status filters and detail popups,
+                powered by a public API.</p>
               <div class="wd-tags"><span>JavaScript</span><span>REST API</span><span>Fetch</span></div>
             </div>
           </a>
@@ -828,13 +1128,13 @@
           <form class="contact-form">
             <div class="row g-3">
               <div class="col-sm-6">
-                <input type="text" class="form-control" placeholder="Name" name="name" required/>
+                <input type="text" class="form-control" placeholder="Name" name="name" required />
               </div>
               <div class="col-sm-6">
-                <input type="email" class="form-control" placeholder="Email" name="email" required/>
+                <input type="email" class="form-control" placeholder="Email" name="email" required />
               </div>
               <div class="col-12">
-                <input type="text" class="form-control" placeholder="Subject" name="subject"/>
+                <input type="text" class="form-control" placeholder="Subject" name="subject" />
               </div>
               <div class="col-12">
                 <textarea class="form-control" rows="5" placeholder="Message" name="message"></textarea>
@@ -879,7 +1179,7 @@
         charIndex++;
         if (charIndex === current.length) {
           deleting = true;
-          setTimeout(typeWriter, 1800); 
+          setTimeout(typeWriter, 1800);
           return;
         }
       } else {
@@ -895,9 +1195,9 @@
     typeWriter();
 
     const revealEls = document.querySelectorAll('.reveal');
-    const dividers  = document.querySelectorAll('.section-divider');
+    const dividers = document.querySelectorAll('.section-divider');
     const videoCads = document.querySelectorAll('.video-card');
-    const infoRows  = document.querySelectorAll('.info-row');
+    const infoRows = document.querySelectorAll('.info-row');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -968,4 +1268,5 @@
     });
   </script>
 </body>
+
 </html>
